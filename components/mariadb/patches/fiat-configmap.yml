@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fiat
+data:
+  fiat-mariadb.yml: |
+    sql:
+      enabled: true
+      connectionPool:
+        jdbcUrl: jdbc:mysql://mariadb:3306/fiat
+        user: fiat_service
+        password: ${FIAT_MARIADB}
+      migration:
+        jdbcUrl: jdbc:mysql://mariadb:3306/fiat
+        user: fiat_migrate
+        password: ${FIAT_MARIADB}
