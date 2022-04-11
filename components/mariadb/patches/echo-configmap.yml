@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: echo
+data:
+  echo-mariadb.yml: |
+    sql:
+      enabled: true
+      connectionPool:
+        jdbcUrl: jdbc:mysql://mariadb:3306/echo
+        user: echo_service
+        password: ${ECHO_MARIADB}
+      migration:
+        jdbcUrl: jdbc:mysql://mariadb:3306/echo
+        user: echo_migrate
+        password: ${ECHO_MARIADB}

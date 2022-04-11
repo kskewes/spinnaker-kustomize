@@ -1,0 +1,29 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: ignored
+spec:
+  template:
+    spec:
+      containers:
+      - env:
+        - name: JAVA_OPTS
+          value: -XX:MaxRAMPercentage=80.0
+        image: us-docker.pkg.dev/spinnaker-community/docker/monitoring-daemon:latest
+        name: monitoring-daemon
+        ports:
+        - name: http
+          containerPort: 8008
+          protocol: TCP
+        readinessProbe:
+          tcpSocket:
+            port: http
+        volumeMounts:
+        - mountPath: /opt/spinnaker-monitoring/filters
+          name: spinnaker-monitoring-filters-volume
+        - mountPath: /opt/spinnaker-monitoring/config
+          name: spinnaker-monitoring-config-volume
+        - mountPath: /opt/spinnaker-monitoring/registry
+          name: spinnaker-monitoring-registry-volume
+        - mountPath: /var/secrets
+          name: spinnaker-secrets-volume

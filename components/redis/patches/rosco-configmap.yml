@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rosco
+data:
+  rosco-redis.yml: |
+    redis:
+      connection: ${services.redis.baseUrl:redis://redis.spinnaker:6379}
