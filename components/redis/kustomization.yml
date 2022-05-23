@@ -4,7 +4,36 @@ namespace: spinnaker
 resources:
 - base
 
+
+configMapGenerator:
+- name: gate
+  behavior: merge
+  files:
+  - gate-redis=redis.yml
+
+replacements:
+- source:
+    kind: Deployment
+    name: gate
+  targets:
+  - select:
+      kind: Deployment
+      name: gate
+    fieldPaths:
+    - spec.template.spec.containers.[name=gate].env.[name=SPRING_PROFILES_ACTIVE].value
+    options:
+      delimiter: ','
+      create: true
+      index: 2
+
 patchesStrategicMerge:
 - patches/gate-configmap.yml
 - patches/igor-configmap.yml
 - patches/rosco-configmap.yml
+
+# patches:
+# - target:
+#     kind: Deployment
+#     name: (gate|igor|rosco)
+#   path: monitoring/patches/shared/sidecar.yml
+

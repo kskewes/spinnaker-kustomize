@@ -17,7 +17,25 @@ patchesStrategicMerge:
 - patches/front50-configmap.yml
 - patches/orca-configmap.yml
 
+  # - patch: |-
+  #     - op: add
+  #       path: /spec/template/spec/volumes/0/sources/1/items
+  #       value:
+  #         key: fiat-mariadb.yml
+  #         path: fiat-mariadb.yml
 # patches:
+# patchesJson6902:
+#   - patch: |-
+#       - op: add
+#         path: /spec/template/spec/volumes/0/projected/sources/1/items
+#         value:
+#           key: fiat-mariadb.yml
+#           path: fiat-mariadb.yml
+#     target:
+#       group: apps
+#       version: v1
+#       kind: Deployment
+#       name: fiat
 # - path: ./patches/fiat-configmap.yml
 #   target:
 #     version: v1

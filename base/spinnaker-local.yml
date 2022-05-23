@@ -47,15 +47,6 @@ services:
   orca:
     baseUrl: http://orca.spinnaker:8083
     enabled: true
-  # TODO: should this still be defined here?
-  redis:
-    baseUrl: redis://redis.spinnaker:6379
-    enabled: true
-  redisRo:
-    # For now just pointing at the primary redis
-    # Consider pointing to a spin-redis-ro service
-    baseUrl: redis://redis.spinnaker:6379
-    enabled: true
   rosco:
     baseUrl: http://rosco.spinnaker:8087
     enabled: true

@@ -44,11 +44,5 @@ spec:
           sources:
           - configMap:
               name: spinnaker
-              items:
-              - key: spinnaker-local.yml
-                path: spinnaker-local.yml
           - configMap:
               name: igor
-              items:
-              - key: igor-local.yml
-                path: igor-local.yml

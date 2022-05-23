@@ -46,6 +46,3 @@ spec:
           sources:
           - configMap:
               name: deck
-              items:
-              - key: settings-local.js
-                path: settings-local.js

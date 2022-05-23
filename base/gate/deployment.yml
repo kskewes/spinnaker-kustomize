@@ -47,11 +47,5 @@ spec:
           sources:
           - configMap:
               name: spinnaker
-              items:
-              - key: spinnaker-local.yml
-                path: spinnaker-local.yml
           - configMap:
               name: gate
-              items:
-              - key: gate-local.yml
-                path: gate-local.yml

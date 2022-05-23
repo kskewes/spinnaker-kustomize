@@ -5,4 +5,4 @@ metadata:
 data:
   igor-redis.yml: |
     redis:
-      connection: ${services.redis.baseUrl:redis://redis.spinnaker:6379}
+      connection: redis://redis.spinnaker:6379
